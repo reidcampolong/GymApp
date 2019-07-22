@@ -6,8 +6,8 @@ import replacePathSepForGlob from 'jest-util/build/replacePathSepForGlob';
 const styles = StyleSheet.create({
   container: {
     paddingTop: 10,
-    paddingLeft: 5,
-    paddingRight: 5,
+    paddingLeft: 8,
+    paddingRight: 8,
     flexDirection: 'row',
     justifyContent: 'space-around'
   },
