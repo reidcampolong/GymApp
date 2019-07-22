@@ -1,29 +1,25 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 
-import { Calendar } from 'react-native-calendars';
 import Header from '../../components/Header';
 import DayRow from './DayRow';
 
 const styles = StyleSheet.create({
-  calendar: {
-    borderTopWidth: 1,
-    paddingTop: 5,
-    borderBottomWidth: 1,
-    borderColor: '#eee',
-    height: 350
+  header: {
+    height: 50
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#2b88d8'
   }
 });
 
 const HomeScreen = () => {
   return (
-    <>
+    <View style={styles.container}>
       <Header />
-      <View>
-        <Text>Hey</Text>
-      </View>
       <DayRow />
-    </>
+    </View>
   );
 };
 

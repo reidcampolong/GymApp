@@ -4,12 +4,14 @@ import { StyleSheet, View, Text } from 'react-native';
 
 const HeaderStyle = StyleSheet.create({
   header: {
-    backgroundColor: '#3486eb',
-    height: 56
+    backgroundColor: '#0078D4',
+    height: 56,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderBottomColor: '#005a9e',
+    borderBottomWidth: 2
   },
   text: {
-    textAlign: 'center',
-    textAlignVertical: 'center',
     color: 'white',
     fontWeight: 'bold',
     fontSize: 20
