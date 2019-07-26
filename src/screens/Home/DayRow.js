@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import replacePathSepForGlob from 'jest-util/build/replacePathSepForGlob';
+import { connect } from 'react-redux';
 
 const styles = StyleSheet.create({
   container: {
@@ -27,32 +26,42 @@ const styles = StyleSheet.create({
   }
 });
 
-const renderDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-const DayItem = ({ title }) => {
+const DayItem = ({ date, setDate }) => {
   const [didWorkout, setDidWorkout] = useState(true);
+
   return (
     <TouchableOpacity
       style={[
         styles.button,
         { backgroundColor: didWorkout ? '#32a866' : '#cc1616' }
       ]}
-      onPress={() => setDidWorkout(!didWorkout)}
+      onPress={() => {
+        setDidWorkout(!didWorkout);
+        setDate(date);
+      }}
     >
-      <Text style={styles.item}>{renderDays.indexOf(title) + 1}</Text>
-      <Text style={styles.item}>{title}</Text>
-      {/* <Icon name="rocket" size={30} color="#01a699" /> */}
+      <Text style={styles.item}>{date}</Text>
     </TouchableOpacity>
   );
 };
 
-const DayRow = () => {
+const DayRow = ({ setDate, workouts }) => {
+  console.log('Received workouts', workouts);
   return (
     <View style={styles.container}>
-      {renderDays.map(i => (
-        <DayItem key={i} title={i} />
+      {workouts.map(i => (
+        <DayItem key={i.date} date={i.date} setDate={setDate} />
       ))}
     </View>
   );
 };
 
-export default DayRow;
+const mapStateToProps = state => {
+  return {
+    workouts: state.workouts
+  };
+};
+
+const DayConnector = connect(mapStateToProps)(DayRow);
+
+export default DayConnector;
