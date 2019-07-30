@@ -19,15 +19,6 @@ const styles = StyleSheet.create({
 
 const HomeScreen = ({ workouts }) => {
   const [selectedDate, setDate] = useState(getCurrentDate());
-  console.log('Selected', selectedDate);
-  console.log('Workouts', workouts);
-  console.log(
-    'Val',
-    Object.values(workouts).find(workout => {
-      console.log(workout.date, selectedDate, workout.date === selectedDate);
-      return workout.date === selectedDate;
-    })
-  );
   return (
     <View style={styles.container}>
       <Header />

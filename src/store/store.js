@@ -1,6 +1,34 @@
 import { createStore } from 'redux';
-import moment from 'moment/src/moment';
-import { convertDateToFormat } from '../utils/Date';
+import { getCurrentDate, getDate } from '../utils/Date';
+
+const initialState = {
+  workouts: [
+    {
+      date: getCurrentDate(),
+      exercises: [
+        {
+          exercise: 'Bench Press',
+          sets: [
+            { reps: 8, restTime: 60, weight: 100 },
+            { reps: 10, restTime: 120, weight: 200 }
+          ]
+        }
+      ]
+    },
+    {
+      date: getDate(-1),
+      exercises: [
+        {
+          exercise: 'Squat',
+          sets: [
+            { reps: 8, restTime: 60, weight: 100 },
+            { reps: 10, restTime: 120, weight: 200 }
+          ]
+        }
+      ]
+    }
+  ]
+};
 
 function workoutReducer(state = {}, action) {
   switch (action.payload) {
@@ -17,16 +45,6 @@ function addWorkoutAction(date, name) {
   };
 }
 
-const getDate = (offset, date = moment()) => {
-  return { date: convertDateToFormat(date.add(offset, 'days')), name: 'Name' };
-};
-
-const generateDates = () => {
-  return [getDate(-2), getDate(-1), getDate(0), getDate(1), getDate(2)];
-};
-
-const store = createStore(workoutReducer, {
-  workouts: generateDates()
-});
+const store = createStore(workoutReducer, initialState);
 
 export default store;

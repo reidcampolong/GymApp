@@ -46,11 +46,10 @@ const DayItem = ({ date, setDate }) => {
 };
 
 const DayRow = ({ setDate, workouts }) => {
-  console.log('Received workouts', workouts);
   return (
     <View style={styles.container}>
-      {workouts.map(i => (
-        <DayItem key={i.date} date={i.date} setDate={setDate} />
+      {workouts.map(workout => (
+        <DayItem key={workout.date} date={workout.date} setDate={setDate} />
       ))}
     </View>
   );
