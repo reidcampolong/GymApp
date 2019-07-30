@@ -8,10 +8,7 @@ const initialState = {
       exercises: [
         {
           exercise: 'Squat',
-          sets: [
-            { reps: 8, restTime: 60, weight: 100 },
-            { reps: 10, restTime: 120, weight: 200 }
-          ]
+          sets: [{ reps: 4, restTime: 80, weight: 130 }]
         }
       ]
     },
@@ -21,7 +18,7 @@ const initialState = {
         {
           exercise: 'Bench Press',
           sets: [
-            { reps: 8, restTime: 60, weight: 100 },
+            { reps: 8, restTime: 120, weight: 120 },
             { reps: 10, restTime: 120, weight: 200 }
           ]
         }
