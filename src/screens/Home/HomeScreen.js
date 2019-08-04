@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 
 import Header from '../../components/Header';
-import DayRow from './DayRow';
+import DatesRow from './DatesRow';
 import DisplayItem from './DisplayItem';
 import { getCurrentDate } from '../../utils/Date';
 
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#2b88d8'
+    backgroundColor: '#2F2F31'
   }
 });
 
@@ -22,12 +22,12 @@ const HomeScreen = ({ workouts }) => {
   return (
     <View style={styles.container}>
       <Header />
-      <DayRow setDate={setDate} />
-      <DisplayItem
-        workoutData={Object.values(workouts).find(
-          workout => workout.date === selectedDate
-        )}
-      />
+      <ScrollView>
+        <DatesRow setDate={setDate} />
+        {workouts.map(workout => (
+          <DisplayItem key={workout.date} workoutData={workout} />
+        ))}
+      </ScrollView>
     </View>
   );
 };

@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
     borderColor: '#c7e0f4',
     width: 50,
     height: 50,
-    backgroundColor: 'red',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50
@@ -27,16 +26,16 @@ const styles = StyleSheet.create({
 });
 
 const DayItem = ({ date, setDate }) => {
-  const [didWorkout, setDidWorkout] = useState(true);
+  const [isSelected, setSelected] = useState(false);
 
   return (
     <TouchableOpacity
       style={[
         styles.button,
-        { backgroundColor: didWorkout ? '#32a866' : '#cc1616' }
+        { backgroundColor: isSelected ? '#32a866' : '#2F2F31' }
       ]}
       onPress={() => {
-        setDidWorkout(!didWorkout);
+        setSelected(!isSelected);
         setDate(date);
       }}
     >

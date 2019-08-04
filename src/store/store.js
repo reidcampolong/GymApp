@@ -4,6 +4,15 @@ import { getCurrentDate, getDate } from '../utils/Date';
 const initialState = {
   workouts: [
     {
+      date: getDate(-2),
+      exercises: [
+        {
+          exercise: 'Squat',
+          sets: [{ reps: 4, restTime: 80, weight: 130 }]
+        }
+      ]
+    },
+    {
       date: getDate(-1),
       exercises: [
         {
@@ -21,6 +30,24 @@ const initialState = {
             { reps: 8, restTime: 120, weight: 120 },
             { reps: 10, restTime: 120, weight: 200 }
           ]
+        }
+      ]
+    },
+    {
+      date: getDate(1),
+      exercises: [
+        {
+          exercise: 'Deadlift',
+          sets: [{ reps: 10, restTime: 120, weight: 200 }]
+        }
+      ]
+    },
+    {
+      date: getDate(2),
+      exercises: [
+        {
+          exercise: 'Deadlift',
+          sets: [{ reps: 10, restTime: 120, weight: 200 }]
         }
       ]
     }
