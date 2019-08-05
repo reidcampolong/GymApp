@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 
@@ -25,30 +25,30 @@ const styles = StyleSheet.create({
   }
 });
 
-const DayItem = ({ date, setDate }) => {
-  const [isSelected, setSelected] = useState(false);
-
+const DayItem = ({ date, isSelected, setDate }) => {
   return (
     <TouchableOpacity
       style={[
         styles.button,
         { backgroundColor: isSelected ? '#32a866' : '#2F2F31' }
       ]}
-      onPress={() => {
-        setSelected(!isSelected);
-        setDate(date);
-      }}
+      onPress={() => setDate(date)}
     >
       <Text style={styles.item}>{date}</Text>
     </TouchableOpacity>
   );
 };
 
-const DayRow = ({ setDate, workouts }) => {
+const DayRow = ({ selectedDate, setDate, workouts }) => {
   return (
     <View style={styles.container}>
       {workouts.map(workout => (
-        <DayItem key={workout.date} date={workout.date} setDate={setDate} />
+        <DayItem
+          key={workout.date}
+          date={workout.date}
+          isSelected={selectedDate === workout.date}
+          setDate={setDate}
+        />
       ))}
     </View>
   );

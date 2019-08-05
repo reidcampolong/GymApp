@@ -30,6 +30,33 @@ const initialState = {
             { reps: 8, restTime: 120, weight: 120 },
             { reps: 10, restTime: 120, weight: 200 }
           ]
+        },
+        {
+          exercise: 'Deadlift',
+          sets: [
+            { reps: 8, restTime: 120, weight: 120 },
+            { reps: 10, restTime: 120, weight: 200 }
+          ]
+        },
+        {
+          exercise: 'Squat',
+          sets: [{ reps: 4, restTime: 80, weight: 130 }]
+        },
+        {
+          exercise: 'Squat',
+          sets: [{ reps: 4, restTime: 80, weight: 130 }]
+        },
+        {
+          exercise: 'Squat',
+          sets: [{ reps: 4, restTime: 80, weight: 130 }]
+        },
+        {
+          exercise: 'Squat',
+          sets: [{ reps: 4, restTime: 80, weight: 130 }]
+        },
+        {
+          exercise: 'Squat',
+          sets: [{ reps: 4, restTime: 80, weight: 130 }]
         }
       ]
     },

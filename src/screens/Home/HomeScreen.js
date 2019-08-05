@@ -3,8 +3,9 @@ import { View, StyleSheet, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 
 import Header from '../../components/Header';
-import DatesRow from './DatesRow';
-import DisplayItem from './DisplayItem';
+import DisplayContainer from './DisplayContainer';
+import DatesRow from './components/DatesRow';
+import AddButton from './components/AddButton';
 import { getCurrentDate } from '../../utils/Date';
 
 const styles = StyleSheet.create({
@@ -14,20 +15,33 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#2F2F31'
+  },
+  display: {
+    backgroundColor: 'red'
+  },
+  dates: {
+    paddingBottom: 10,
+    marginBottom: 10
   }
 });
 
 const HomeScreen = ({ workouts }) => {
   const [selectedDate, setDate] = useState(getCurrentDate());
+
   return (
     <View style={styles.container}>
       <Header />
-      <ScrollView>
-        <DatesRow setDate={setDate} />
-        {workouts.map(workout => (
-          <DisplayItem key={workout.date} workoutData={workout} />
-        ))}
-      </ScrollView>
+      <DatesRow
+        style={styles.dates}
+        selectedDate={selectedDate}
+        setDate={setDate}
+      />
+      <DisplayContainer
+        style={styles.display}
+        selectedDate={selectedDate}
+        workouts={workouts}
+      />
+      <AddButton />
     </View>
   );
 };
