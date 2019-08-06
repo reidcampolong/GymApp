@@ -1,10 +1,14 @@
 import React from 'react';
 
 import { View, Text, StyleSheet } from 'react-native';
+import { withNavigation } from 'react-navigation';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
+import { lightBackgroundColor } from '../../../theme/theme';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#454547',
+    backgroundColor: lightBackgroundColor,
     borderColor: 'red',
     borderWidth: 1,
     borderStyle: 'solid',
@@ -17,42 +21,25 @@ const styles = StyleSheet.create({
   }
 });
 
-// function getDisplayInformation(workout) {
-//   console.log(workout.exercises[0]);
-//   return workout.exercises.map(
-//     exercise =>
-//       'Name: ' +
-//       exercise.exercise +
-//       '\nSets: ' +
-//       exercise.sets.map(
-//         set =>
-// '\nReps ' +
-// set.reps +
-// ' Rest Time ' +
-// set.restTime +
-// ' Weight: ' +
-// set.weight
-//       )
-//   );
-// }
-
-const DisplayItem = ({ exercise }) => {
+const DisplayItem = ({ navigation, exercise }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{exercise.exercise}</Text>
-      <Text style={styles.text}>
-        {exercise.sets.map(
-          set =>
-            '\nReps ' +
-            set.reps +
-            ' Rest Time ' +
-            set.restTime +
-            ' Weight: ' +
-            set.weight
-        )}
-      </Text>
+      <TouchableOpacity onPress={() => navigation.navigate('Workout')}>
+        <Text style={styles.text}>{exercise.exercise}</Text>
+        <Text style={styles.text}>
+          {exercise.sets.map(
+            set =>
+              '\nReps ' +
+              set.reps +
+              ' Rest Time ' +
+              set.restTime +
+              ' Weight: ' +
+              set.weight
+          )}
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
-export default DisplayItem;
+export default withNavigation(DisplayItem);

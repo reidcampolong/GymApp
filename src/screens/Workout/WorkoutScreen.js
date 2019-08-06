@@ -1,16 +1,21 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import Header from '../../components/Header';
+import { darkBackgroundColor } from '../../theme/theme';
 
-const WorkoutScren = () => {
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  }
+});
+
+const WorkoutScreen = () => {
   return (
-    <>
+    <View style={styles.container}>
       <Header />
-      <View>
-        <Text>Workouts</Text>
-      </View>
-    </>
+      <Text>Workouts</Text>
+    </View>
   );
 };
 
-export default WorkoutScren;
+export default WorkoutScreen;

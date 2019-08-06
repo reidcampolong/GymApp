@@ -7,6 +7,7 @@ import DisplayContainer from './DisplayContainer';
 import DatesRow from './components/DatesRow';
 import AddButton from './components/AddButton';
 import { getCurrentDate } from '../../utils/Date';
+import { darkBackgroundColor } from '../../theme/theme';
 
 const styles = StyleSheet.create({
   header: {
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#2F2F31'
+    backgroundColor: darkBackgroundColor
   },
   display: {
     backgroundColor: 'red'

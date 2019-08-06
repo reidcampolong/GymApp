@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingLeft: 8,
     paddingRight: 8,
+    paddingBottom: 10,
     flexDirection: 'row',
     justifyContent: 'space-around'
   },

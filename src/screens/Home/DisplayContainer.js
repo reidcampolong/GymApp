@@ -6,6 +6,7 @@ import DisplayItem from './components/DisplayItem';
 const DisplayContainer = ({ selectedDate, workouts }) => {
   getSelectedWorkout = () =>
     Object.values(workouts).find(workout => workout.date === selectedDate);
+
   return (
     <Fragment>
       <ScrollView>
